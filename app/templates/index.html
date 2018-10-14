@@ -5,10 +5,10 @@
 <div class="style-jumbo mb-5">
 	<div class="jumbotron text-center mb-3 shadow-lg">
 		<h2 class="display-4">Hi {{ current_user.first_name.capitalize() }}!</h2>
-		<p class="lead">Today is {{ date.strftime("%d")|nth }} of {{ date.strftime("%B, %Y") }}</p>
-		<p class="lead">You've been alive for 333333 days</p>
-		<p class="lead">Today we are on Quadrant 4</p>
-		<p class="lead">Current round is 18</p>
+		<p class="lead">Today is {{ dates['today'].strftime("%d")|nth }} of {{ dates['today'].strftime("%B, %Y") }}</p>
+		<p class="lead">You've been alive for {{ dates['days_alive'] }} days</p>
+		<p class="lead">Today we are on Quadrant {{ dates['quad']}}</p>
+		<p class="lead">Current round is {{ dates['round'] }}</p>
 	</div>
 </div>
 <!-- Quadrant tab navigation -->
@@ -21,9 +21,9 @@
 	</div>
 </nav> <!-- navigation tabs -->
 <div class="tab-content" id="nav-tabContent">
-	<div class="tab-pane fade show active" id="q1" role="tabpanel" aria-labelledby="q1-tab">{% include "quadrant.html" %}</div>
-	<div class="tab-pane fade" id="q2" role="tabpanel" aria-labelledby="q2-tab">{% include "quadrant.html" %}</div>
-	<div class="tab-pane fade" id="q3" role="tabpanel" aria-labelledby="q3-tab">{% include "quadrant.html" %}</div>
-	<div class="tab-pane fade" id="q4" role="tabpanel" aria-labelledby="q4-tab">{% include "quadrant.html" %}</div>
+	<div class="tab-pane fade show active" id="q1" role="tabpanel" aria-labelledby="q1-tab">{% include "_quadrant1.html" %}</div>
+	<div class="tab-pane fade" id="q2" role="tabpanel" aria-labelledby="q2-tab">{% include "_quadrant2.html" %}</div>
+	<div class="tab-pane fade" id="q3" role="tabpanel" aria-labelledby="q3-tab">{% include "_quadrant3.html" %}</div>
+	<div class="tab-pane fade" id="q4" role="tabpanel" aria-labelledby="q4-tab">{% include "_quadrant4.html" %}</div>
 </div> <!-- .tab-content -->
 {% endblock %}

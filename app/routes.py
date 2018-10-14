@@ -4,7 +4,8 @@ from flask import render_template, flash, redirect, url_for, request
 from app.forms import LoginForm, RegistrationForm, UpdateProfileForm
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-import datetime
+from .util import date_utils
+from datetime import timedelta, date
 
 
 # Entry point
@@ -13,8 +14,14 @@ import datetime
 @login_required
 def index():
 	title = current_user.first_name + " Home"
-	date = datetime.date.today()
-	return render_template('index.html', title=title, date=date)
+	dates = {}
+	dates['today'] = date.today()
+	dates['days_alive'] = date_utils.day_diff(dates['today'], current_user.dob.date())
+	dates['quad'] = date_utils.quadrant(dates['today'])
+	dates['round'] = date_utils.round_nbr(dates['today'])
+	grid = date_utils.round_vals_from_date(date.today())
+	print(grid['dates_str'])
+	return render_template('index.html', title=title, dates=dates, grid=grid)
 
 
 # Login to the website
