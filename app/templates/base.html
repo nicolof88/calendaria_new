@@ -70,11 +70,15 @@
 	</div> <!-- .container -->
   
 	<!-- JavaScript for Bootstrap, Jquery and Ajax -->
-	<script src="{{ url_for('static',filename='js/moment.js') }}"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	{% include "js.html" %}
+
+	{% block scripts %}
+		<!-- <script src="{{ url_for('static',filename='js/moment.js') }}"></script> -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		{{ moment.include_moment() }}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		{% include "js.html" %}
+	{% endblock %}
 </body>
 </html>

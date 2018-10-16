@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_moment import Moment
 from .util import filters
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
@@ -27,6 +28,9 @@ login.login_view = 'login'
 
 # Email support
 mail = Mail(app)
+
+# Moment for date consistency
+moment = Moment(app)
 
 
 from app import routes, models, errors

@@ -237,11 +237,12 @@ def round_vals_from_date(indate):
 
 
 # Values for a particular quadrant given a date
-def quadrant_vals(indate, quad_n):
+def quadrant_n_vals(indate, quad_n):
 	quad = {}
 	rnd_vals = round_vals_from_date(indate)
+	quad_n = int(quad_n)
 
-	# Define the values to pull
+	# Define the values to pull from dictionary lists
 	if quad_n == 1:
 		mini, maxi = 0, 4
 	elif quad_n == 2:
@@ -260,6 +261,14 @@ def quadrant_vals(indate, quad_n):
 
 	# Return the quadrant dict
 	return quad
+
+# Calculate the value of all the quadrants given a date 
+def quadrant_vals(indate):
+	quads = {}
+	for i in range(1, 5):
+		quads['q' + str(i)] = quadrant_n_vals(indate, i)
+
+	return quads
 	
 
 # Test Function

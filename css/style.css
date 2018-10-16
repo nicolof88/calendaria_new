@@ -62,6 +62,20 @@
 }
 
 
+/****** REGISTER *****/
+#register-btn {
+	color: #fff;
+	background-color: #00251a;
+	border-color: #26a69a;
+}
+
+#register-btn:hover {
+	color: #fff;
+	background-color: #26a69a;
+	border-color: #00251a;
+}
+
+
 /****** PROFILE ******/
 #edit-button, #update-btn {
 	color: #004D40;

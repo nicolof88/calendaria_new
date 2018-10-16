@@ -4,7 +4,7 @@
 <!-- Main Titles -->
 <div class="style-jumbo mb-5">
 	<div class="jumbotron text-center mb-3 shadow-lg">
-		<h2 class="display-4">Hi {{ current_user.first_name.capitalize() }}!</h2>
+		<h2 class="display-4">{{ current_user.first_name.capitalize() }},</h2>
 		<p class="lead">Today is {{ dates['today'].strftime("%d")|nth }} of {{ dates['today'].strftime("%B, %Y") }}</p>
 		<p class="lead">You've been alive for {{ dates['days_alive'] }} days</p>
 		<p class="lead">Today we are on Quadrant {{ dates['quad']}}</p>
