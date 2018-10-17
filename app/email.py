@@ -15,10 +15,19 @@ def send_email(subject, sender, recipients, text_body, html_body):
 	Thread(target=send_async_email, args=(app, msg)).start()
 
 
-def send_password_reset_email(user):
+def send_password_reset_email(user, loc):
+	if loc == 'es':
+		title = '[Calendaria] Actualice su contrasena'
+		email_txt_temp = 'es/email/reset_password.txt'
+		email_html_temp = 'es/email/reset_password.html'
+	else:
+		title = '[Calendaria] Reset your password'
+		email_txt_temp = 'email/reset_password.txt'
+		email_html_temp = 'email/reset_password.html'
+		
 	token = user.get_reset_password_token()
-	send_email('[Calendaria] Reset your password', 
+	send_email(title, 
 		sender=app.config['ADMINS'][0],
 		recipients=[user.email],
-		text_body=render_template('email/reset_password.txt', user=user, token=token),
-		html_body=render_template('email/reset_password.html', user=user, token=token))
+		text_body=render_template(email_txt_temp, user=user, token=token),
+		html_body=render_template(email_html_temp, user=user, token=token))

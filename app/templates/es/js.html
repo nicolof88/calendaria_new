@@ -1,14 +1,14 @@
 <script>
 $( function() {
 	// Add the date picker to the register and update forms
-	$( "#register-bday" ).datepicker({
+	$( "#register-bday-es" ).datepicker({
 		autoclose: true,
-		format: "mm/dd/yyyy"
-		});
-	$( "#update-bday" ).datepicker({
+		format: "dd/mm/yyyy"
+	});
+	$( "#update-bday-es" ).datepicker({
 		autoclose: true,
-		format: "mm/dd/yyyy"
-	}
+		format: "dd/mm/yyyy"
+	});
 });
 
 // Function to validate Date Keys (only numeric, backspace or slash)
